@@ -55,10 +55,12 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # 1.º: cabeceras de seguridad, sigue primero
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    # WhiteNoiseMiddleware: nueva línea — debe ir justo después de SecurityMiddleware
+    # 2.º: WhiteNoise JUSTO después de SecurityMiddleware, como pide su documentación
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 3.º: sesiones baja un lugar; el resto de la lista no se toca
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -89,26 +91,15 @@ WSGI_APPLICATION = 'miproyecto_djangopmjo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
-# (más abajo en el archivo, reemplazá el DATABASES que trae Django por defecto)
 DATABASES = {
     'default': {
-        # ENGINE: qué motor de base de datos usar — mysql en vez del sqlite3 por defecto
-        'ENGINE': 'django.db.backends.mysql',
-        # NAME: nombre de la base de datos, leído de la variable DB_NAME del .env
+        'ENGINE': config('DB_ENGINE'),
         'NAME': config('DB_NAME'),
-        # USER: usuario de conexión, leído de DB_USER
         'USER': config('DB_USER'),
-        # PASSWORD: contraseña de conexión, leída de DB_PASSWORD
         'PASSWORD': config('DB_PASSWORD'),
-        # HOST: servidor donde vive la base de datos, leído de DB_HOST
         'HOST': config('DB_HOST'),
-        # PORT: puerto de conexión; default='3306' se usa solo si DB_PORT no está en el .env
-        'PORT': config('DB_PORT', default='3306'),
-        # OPTIONS: Aiven exige que la conexión venga cifrada (SSL)
-        'OPTIONS': {'ssl': {'ssl-mode': 'REQUIRED'}},
-    # cierre del diccionario de configuración de la conexión
+        'PORT': config('DB_PORT'),
     }
-# cierre del diccionario DATABASES
 }
 
 
@@ -181,3 +172,6 @@ STORAGES = {
     },
 # cierre del diccionario STORAGES
 }
+# LOGIN_URL: a dónde manda @login_required a quien quiere entrar sin haber iniciado sesión
+# '/admin/login/': por ahora usamos la pantalla de login del panel /admin; la Semana 6 la cambia por una propia
+LOGIN_URL = '/admin/login/'

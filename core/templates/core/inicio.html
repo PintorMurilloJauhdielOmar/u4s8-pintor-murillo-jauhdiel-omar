@@ -1,4 +1,3 @@
-<!-- DOCTYPE + lang: igual que en tus HTML de las semanas 1 y 2 -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,9 +6,8 @@
 </head>
 <body>
   <h1>Hola desde MySQL</h1>
-  <!-- {{ motor }}: Django reemplaza esto por el valor de contexto['motor'] que armó la vista -->
   <p>Motor de base de datos: {{ motor }}</p>
-  <!-- {{ host }}: reemplazado por contexto['host'] — si dice "aivencloud.com" es MySQL real -->
   <p>Host: {{ host }}</p>
+  <p>Base de datos: {{ base }}</p>
 </body>
 </html>
