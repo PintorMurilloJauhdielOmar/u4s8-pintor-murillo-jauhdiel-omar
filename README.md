@@ -4,7 +4,7 @@
 https://u4s8-pintor-murillo-jauhdiel-omar.onrender.com/servicios/
 
 ## Qué hace este proyecto
-DesiertoSoftware es una plataforma web desarrollada en Django para la gestión eficiente y publicación de un catálogo de servicios tecnológicos. Cuenta con autenticación de usuarios donde cada cuenta registrada tiene acceso a un panel interactivo (CRUD) para crear, consultar, actualizar y eliminar exclusivamente sus propios registros, asegurando integridad en la base de datos MySQL en la nube (Aiven).
+Este proyecto es una plataforma web desarrollada en Django para la gestión eficiente y publicación de un catálogo de servicios tecnológicos. Cuenta con autenticación de usuarios donde cada cuenta registrada tiene acceso a un panel interactivo (CRUD) para crear, consultar, actualizar y eliminar exclusivamente sus propios registros, asegurando integridad en la base de datos MySQL en la nube (Aiven).
 
 ## Stack técnico
 Django + MySQL (Aiven) + Tailwind CSS + Render
